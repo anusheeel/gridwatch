@@ -1,0 +1,12 @@
+{
+    "builds": [
+      { "src": "package.json", "use": "@vercel/static-build" },
+      { "src": "src/services/websocket/mockSensorApi.ts", "use": "@vercel/node" },
+      { "src": "src/middleware/server.ts", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/socket", "dest": "src/middleware/server.ts" },
+      { "src": "/sensor", "dest": "src/services/websocket/mockSensorApi.ts" },
+      { "src": "/(.*)", "dest": "/index.html" }
+    ]
+  }
