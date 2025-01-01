@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start:sensor": "node --loader ts-node/esm src/services/websocket/mockSensorApi.ts"
+    "start:sensor": "node --loader ts-node/esm src/services/websocket/mockSensorApi.ts",
+    "start": "concurrently \"npm run start:sensor\" \"node --loader ts-node/esm src/middleware/server.ts\" \"npm run preview\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.47.10",

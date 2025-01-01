@@ -1,0 +1,10 @@
+# render.yaml
+services:
+  - type: web
+    name: gridwatch
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 8080
